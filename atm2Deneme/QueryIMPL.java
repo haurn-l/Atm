@@ -11,17 +11,17 @@ public class QueryIMPL implements Query {
     public void connection() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            System.out.println("Bağlanılıyor...");
+            System.out.println("Baglanılıyor...");
         } catch (ClassNotFoundException e) {
-            System.err.println("Driver'a bağlanılamadı. Hata: " + e.getMessage());
+            System.err.println("Driver'a baglanılamadı. Hata: " + e.getMessage());
         }
 
         try {
 
             connection = DriverManager.getConnection("jdbc:mysql://localhost/uygulama", "root", "2024123011Qk!");
-            System.out.println("Connection bağlantısı başarılı.");
+            System.out.println("Connection baglantisi başarili.");
         } catch (SQLException e) {
-            System.out.println("Connection bağlantısı yapılamadı. Hata: " + e.getMessage());
+            System.out.println("Connection baglantisi yapilamadi. Hata: " + e.getMessage());
         }
     }
 
@@ -33,7 +33,7 @@ public class QueryIMPL implements Query {
             pStatement.setString(1, accountPassword);
             pStatement.executeUpdate();
         } catch (SQLException e) {
-            System.err.println("Hesap silinirken hata oluştu. Hata: " + e.getMessage());
+            System.err.println("Hesap silinirken hata olustu. Hata: " + e.getMessage());
         }
     }
 
@@ -57,7 +57,7 @@ public class QueryIMPL implements Query {
                 System.err.println("Hesap bulunamadı.");
             }
         } catch (SQLException e) {
-            System.err.println("Müşteri bilgilerini alırken hata oluştu. Hata: " + e.getMessage());
+            System.err.println("Musteri bilgilerini alirken hata olustu. Hata: " + e.getMessage());
         }
     }
 
@@ -72,7 +72,7 @@ public class QueryIMPL implements Query {
             if (resultSet.next()) {
                 return resultSet.getInt("BALANCE");
             } else {
-                System.err.println("Hesap bulunamadı.");
+                System.err.println("Hesap bulunamadi.");
                 return 0;
             }
         } catch (SQLException e) {
@@ -90,7 +90,7 @@ public class QueryIMPL implements Query {
             pStatement.setString(2, accountPassword);
             pStatement.executeUpdate();
         } catch (SQLException e) {
-            System.err.println("Bakiye güncellenirken hata oluştu. Hata: " + e.getMessage());
+            System.err.println("Bakiye guncellenirken hata olustu. Hata: " + e.getMessage());
         }
     }
 
@@ -103,7 +103,7 @@ public class QueryIMPL implements Query {
             pStatement.setString(2, accPassword);
             pStatement.executeUpdate();
         } catch (SQLException e) {
-            System.err.println("Şifre güncellenirken hata oluştu. Hata: " + e.getMessage());
+            System.err.println("Sifre guncellenirken hata olustu. Hata: " + e.getMessage());
         }
     }
 
@@ -116,7 +116,7 @@ public class QueryIMPL implements Query {
             pStatement.setString(2, accPassword);
             pStatement.executeUpdate();
         } catch (SQLException e) {
-            System.err.println("Telefon numarası güncellenirken hata oluştu. Hata: " + e.getMessage());
+            System.err.println("Telefon numarasi guncellenirken hata olustu. Hata: " + e.getMessage());
         }
     }
 
@@ -125,25 +125,25 @@ public class QueryIMPL implements Query {
         if (pStatement!=null){
             try {
                 pStatement.close();
-                System.out.println("pStatment basarılı bir sekilde kapatıldı");
+                System.out.println("pStatment basarili bir sekilde kapatildi");
             } catch (SQLException e) {
-                System.err.println("pStatement kapatılırken bir sorun olustu");
+                System.err.println("pStatement kapatilirken bir sorun olustu");
                 System.out.println(e.getMessage());
             }
         }
         if (connection!=null){
             try {
                 connection.close();
-                System.out.println("Connection basarılı bir sekilde kapatıldı.");
+                System.out.println("Connection basarıili bir sekilde kapatildi.");
             } catch (SQLException e) {
-                System.err.println("Connection kapatılırken hata olusutu.Hata : "+e.getMessage());
+                System.err.println("Connection kapatilirken hata olustu.Hata : "+e.getMessage());
             }
         }
         if (resultSet!=null){
             try {
                 resultSet.close();
             } catch (SQLException e) {
-                System.err.println("resultSet kapatılırken bir hata oluştu. HATA : "+e.getMessage());
+                System.err.println("resultSet kapatilirken bir hata olustu. HATA : "+e.getMessage());
             }
         }
     }
